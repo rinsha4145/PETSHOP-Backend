@@ -2,7 +2,7 @@ const joi = require('joi')
 
 //register schema
 const joiUserSchema=joi.object({
-    username:joi.string().required(),
+    name:joi.string().required(),
     password: joi.string().required(),
     cpassword: joi.string().required(),
     phone:joi.number().required(),
@@ -15,7 +15,7 @@ const joiUserSchema=joi.object({
 
 //login schema
 const joiLoginSchema=joi.object({
-    username:joi.string(),
+    name:joi.string(),
     password:joi.string()
 
 })

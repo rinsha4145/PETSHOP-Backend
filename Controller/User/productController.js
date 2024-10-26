@@ -1,25 +1,24 @@
-const products = require('../../models/product')
+const Products = require('../../models/productsSchema')
 // const CustomError = require('../../utils/customError')
 
-const allProduct = async (req, res, next) => {
-
-    const product = await products.find()
+const getAllProducts = async (req, res, next) => {
+    const Product = await Products.find()
     // if (!product) {
     //     return next(new CustomError('product not found', 404))
     // }
-    res.status(200).json(product)
+    res.status(200).json(Product)
 
 }
+
 //get products by category
 const productBycategory = async (req, res) => {
-    const product = await products.find({ category: req.params.category })
-    res.json(product)
+    const Product = await Products.find({ category: req.params.category })
+    res.json(Product)
 }
 
 //get product by ID
 const getproductbyID = async (req, res, next) => {
-
-    const oneProduct = await products.findById(req.params.id)
+    const oneProduct = await Products.findById(req.params.id)
     // if (!oneProduct) {
     //     return next(new CustomError('product not found', 404))
     // }
@@ -27,4 +26,4 @@ const getproductbyID = async (req, res, next) => {
 
 }
 
-module.exports = {productBycategory,getproductbyID,allProduct}
+module.exports = {productBycategory,getproductbyID,getAllProducts}
