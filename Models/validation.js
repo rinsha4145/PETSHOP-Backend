@@ -22,6 +22,7 @@ const joiLoginSchema=joi.object({
 
 //product schema
 const JoiProductSchema = joi.object({
+    title: joi.string().required(),
     productName: joi.string().required(),
     category: joi.string().required(),
     price: joi.number().required(),

@@ -4,10 +4,11 @@ const bcrypt=require('bcrypt')
 
 const getusers=async (req,res)=>{
     try {
-       const users= await Users.find()
+       const users= await User.find()
        res.status(200).send(users)
     } catch (error) {
         res.status(404).send({message:error.message})   
+        console.log(error)
     }   
 
 }
