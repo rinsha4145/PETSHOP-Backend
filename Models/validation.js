@@ -1,5 +1,6 @@
 const joi = require('joi')
 
+//register schema
 const joiUserSchema=joi.object({
     username:joi.string().required(),
     password: joi.string().required(),
@@ -11,4 +12,22 @@ const joiUserSchema=joi.object({
     admin:joi.boolean().optional(),
     blocked:joi.boolean().optional()
 })
-module.exports={joiUserSchema}
+
+//login schema
+const joiLoginSchema=joi.object({
+    username:joi.string(),
+    password:joi.string()
+
+})
+
+//product schema
+const JoiProductSchema = joi.object({
+    productName: joi.string().required(),
+    category: joi.string().required(),
+    price: joi.number().required(),
+    actualPrice: joi.number(),
+    productDescription: joi.string().required(),
+  })
+
+
+module.exports={joiUserSchema,joiLoginSchema,JoiProductSchema}

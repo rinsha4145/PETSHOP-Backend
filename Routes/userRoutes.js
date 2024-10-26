@@ -4,10 +4,14 @@ const userController = require('../Controller/User/userController');
 const tryCatch = require("../Utils/trycatch");
 
 router
-.post('/signup', userController.userReg)
-// .post('/user/login')
+    //user reg,login,logout
+    .post('/signup', userController.userReg)
+    // .post('/user/login')
 
-// .post('/user/login',tryCatch(userController.userlogin))
-// .post('/user/logout',tryCatch(userController.userLogout))
+    //Product View
+    .get('/products',getAllProducts)
+    .get('/productsby/:id',getProductsId)
+    .get('/products/:category', getProductsCategory)
 
+    
 module.exports = router; 

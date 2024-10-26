@@ -1,10 +1,24 @@
 const User = require('../../Models/user');
-const { joiUserSchema } = require('../../Models/validation');
+const { joiUserSchema,joiLoginSchema } = require('../../Models/validation');
+const bcrypt=require('bcrypt')
+
+const getusers=async (req,res)=>{
+    try {
+       const users= await Users.find()
+       res.status(200).send(users)
+
+    } catch (error) {
+        res.status(404).send({message:error.message})
+        
+    }
+    
+
+}
 
 // User Registration
 const userReg = async (req, res, next) => {
     try {
-        console.log("Request Body:", req.body); // Log incoming data
+        console.log("Request Body:", req.body);
         const { value, error } = joiUserSchema.validate(req.body);
         if (error) {
             console.log("Validation Error:", error);

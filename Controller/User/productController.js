@@ -27,8 +27,4 @@ const getproductbyID = async (req, res, next) => {
 
 }
 
-module.exports = {
-    productBycategory,
-    getproductbyID,
-    allProduct
-}
+module.exports = {productBycategory,getproductbyID,allProduct}
